@@ -1,0 +1,272 @@
+[ 23%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[ 23%] Building CXX object CMakeFiles/kvortex_core.dir/src/core/types.cpp.o
+[ 23%] Building CXX object CMakeFiles/kvortex_core.dir/src/memory/pool.cpp.o
+In file included from /home/deeptechadmin/kvortex/src/core/types.cpp:6:
+/home/deeptechadmin/kvortex/include/kvortex/core/types.hpp: In member function ‘std::size_t std::hash<kvortex::SHA256Hash>::operator()(const kvortex::SHA256Hash&) const’:
+/home/deeptechadmin/kvortex/include/kvortex/core/types.hpp:200:18: error: ‘memcpy’ is not a member of ‘std’; did you mean ‘wmemcpy’?
+  200 |             std::memcpy(&result, h.data.data(), sizeof(size_t));
+      |                  ^~~~~~
+      |                  wmemcpy
+In file included from /home/deeptechadmin/kvortex/include/kvortex/memory/pool.hpp:9,
+                 from /home/deeptechadmin/kvortex/src/memory/pool.cpp:6:
+/home/deeptechadmin/kvortex/include/kvortex/memory/../core/types.hpp: In member function ‘std::size_t std::hash<kvortex::SHA256Hash>::operator()(const kvortex::SHA256Hash&) const’:
+/home/deeptechadmin/kvortex/include/kvortex/memory/../core/types.hpp:200:18: error: ‘memcpy’ is not a member of ‘std’; did you mean ‘wmemcpy’?
+  200 |             std::memcpy(&result, h.data.data(), sizeof(size_t));
+      |                  ^~~~~~
+      |                  wmemcpy
+gmake[2]: *** [CMakeFiles/kvortex_core.dir/build.make:76: CMakeFiles/kvortex_core.dir/src/core/types.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from /home/deeptechadmin/kvortex/src/memory/pool.cpp:7:
+/home/deeptechadmin/kvortex/src/memory/pool.cpp: In static member function ‘static kvortex::Result<std::unique_ptr<kvortex::PinnedHostPool> > kvortex::PinnedHostPool::create(size_t, bool, size_t)’:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:59: error: no matching function for call to ‘kvortex::Logger::error(const char [54], size_t&, const char*)’
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:44:9: note: in expansion of macro ‘LOG_ERROR’
+   44 |         LOG_ERROR("Failed to allocate pinned memory: {} bytes, error: {}",
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::error(std::string_view, Args&& ..., const std::source_location&)’
+   93 |     void error(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:59: note:   candidate expects 2 arguments, 3 provided
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:44:9: note: in expansion of macro ‘LOG_ERROR’
+   44 |         LOG_ERROR("Failed to allocate pinned memory: {} bytes, error: {}",
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:139:58: error: no matching function for call to ‘kvortex::Logger::info(const char [53], double, size_t&)’
+  139 | #define LOG_INFO(...)  ::kvortex::Logger::instance().info(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:52:5: note: in expansion of macro ‘LOG_INFO’
+   52 |     LOG_INFO("Created pinned host pool: {} GB, alignment: {} bytes",
+      |     ^~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:81:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::info(std::string_view, Args&& ..., const std::source_location&)’
+   81 |     void info(std::string_view fmt, Args&&... args,
+      |          ^~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:81:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:139:58: note:   candidate expects 2 arguments, 3 provided
+  139 | #define LOG_INFO(...)  ::kvortex::Logger::instance().info(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:52:5: note: in expansion of macro ‘LOG_INFO’
+   52 |     LOG_INFO("Created pinned host pool: {} GB, alignment: {} bytes",
+      |     ^~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp: In destructor ‘kvortex::PinnedHostPool::~PinnedHostPool()’:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:138:59: error: no matching function for call to ‘kvortex::Logger::debug(const char [33], size_t&)’
+  138 | #define LOG_DEBUG(...) ::kvortex::Logger::instance().debug(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:61:9: note: in expansion of macro ‘LOG_DEBUG’
+   61 |         LOG_DEBUG("Freed pinned host pool: {} bytes", total_size_);
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:75:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::debug(std::string_view, Args&& ..., const std::source_location&)’
+   75 |     void debug(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:75:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:61:55: note:   cannot convert ‘((kvortex::PinnedHostPool*)this)->kvortex::PinnedHostPool::total_size_’ (type ‘size_t’ {aka ‘long unsigned int’}) to type ‘const std::source_location&’
+   61 |         LOG_DEBUG("Freed pinned host pool: {} bytes", total_size_);
+      |                                                       ^~~~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:138:60: note: in definition of macro ‘LOG_DEBUG’
+  138 | #define LOG_DEBUG(...) ::kvortex::Logger::instance().debug(__VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp: In member function ‘kvortex::Result<void*> kvortex::PinnedHostPool::allocate(size_t)’:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:140:58: error: no matching function for call to ‘kvortex::Logger::warn(const char [70], size_t&, long unsigned int)’
+  140 | #define LOG_WARN(...)  ::kvortex::Logger::instance().warn(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:100:9: note: in expansion of macro ‘LOG_WARN’
+  100 |         LOG_WARN("Pinned pool out of memory: requested {} bytes, largest free block: {}",
+      |         ^~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:87:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::warn(std::string_view, Args&& ..., const std::source_location&)’
+   87 |     void warn(std::string_view fmt, Args&&... args,
+      |          ^~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:87:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:140:58: note:   candidate expects 2 arguments, 3 provided
+  140 | #define LOG_WARN(...)  ::kvortex::Logger::instance().warn(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:100:9: note: in expansion of macro ‘LOG_WARN’
+  100 |         LOG_WARN("Pinned pool out of memory: requested {} bytes, largest free block: {}",
+      |         ^~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:137:59: error: no matching function for call to ‘kvortex::Logger::trace(const char [58], size_t&, void*&, size_t&)’
+  137 | #define LOG_TRACE(...) ::kvortex::Logger::instance().trace(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:125:5: note: in expansion of macro ‘LOG_TRACE’
+  125 |     LOG_TRACE("Allocated {} bytes from pinned pool (ptr: {}, offset: {})",
+      |     ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:69:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::trace(std::string_view, Args&& ..., const std::source_location&)’
+   69 |     void trace(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:69:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:137:59: note:   candidate expects 2 arguments, 4 provided
+  137 | #define LOG_TRACE(...) ::kvortex::Logger::instance().trace(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:125:5: note: in expansion of macro ‘LOG_TRACE’
+  125 |     LOG_TRACE("Allocated {} bytes from pinned pool (ptr: {}, offset: {})",
+      |     ^~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp: In member function ‘kvortex::VoidResult kvortex::PinnedHostPool::deallocate(void*)’:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:59: error: no matching function for call to ‘kvortex::Logger::error(const char [44], void*&)’
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:141:9: note: in expansion of macro ‘LOG_ERROR’
+  141 |         LOG_ERROR("Attempted to deallocate invalid pointer: {}", ptr);
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::error(std::string_view, Args&& ..., const std::source_location&)’
+   93 |     void error(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:141:66: note:   cannot convert ‘ptr’ (type ‘void*’) to type ‘const std::source_location&’
+  141 |         LOG_ERROR("Attempted to deallocate invalid pointer: {}", ptr);
+      |                                                                  ^~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:141:9: note: in expansion of macro ‘LOG_ERROR’
+  141 |         LOG_ERROR("Attempted to deallocate invalid pointer: {}", ptr);
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:137:59: error: no matching function for call to ‘kvortex::Logger::trace(const char [51], size_t&, size_t&)’
+  137 | #define LOG_TRACE(...) ::kvortex::Logger::instance().trace(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:155:5: note: in expansion of macro ‘LOG_TRACE’
+  155 |     LOG_TRACE("Deallocated {} bytes from pinned pool (offset: {})", size, offset);
+      |     ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:69:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::trace(std::string_view, Args&& ..., const std::source_location&)’
+   69 |     void trace(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:69:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:137:59: note:   candidate expects 2 arguments, 3 provided
+  137 | #define LOG_TRACE(...) ::kvortex::Logger::instance().trace(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:155:5: note: in expansion of macro ‘LOG_TRACE’
+  155 |     LOG_TRACE("Deallocated {} bytes from pinned pool (offset: {})", size, offset);
+      |     ^~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp: In static member function ‘static kvortex::Result<std::unique_ptr<kvortex::GPUAsyncPool> > kvortex::GPUAsyncPool::create(size_t, cudaStream_t, int)’:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:59: error: no matching function for call to ‘kvortex::Logger::error(const char [33], int&, const char*)’
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:197:9: note: in expansion of macro ‘LOG_ERROR’
+  197 |         LOG_ERROR("Failed to set CUDA device {}: {}",
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::error(std::string_view, Args&& ..., const std::source_location&)’
+   93 |     void error(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:59: note:   candidate expects 2 arguments, 3 provided
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:197:9: note: in expansion of macro ‘LOG_ERROR’
+  197 |         LOG_ERROR("Failed to set CUDA device {}: {}",
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:59: error: no matching function for call to ‘kvortex::Logger::error(const char [38], const char*)’
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:210:9: note: in expansion of macro ‘LOG_ERROR’
+  210 |         LOG_ERROR("Failed to create CUDA memory pool: {}",
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::error(std::string_view, Args&& ..., const std::source_location&)’
+   93 |     void error(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:211:36: note:   cannot convert ‘cudaGetErrorString(err)’ (type ‘const char*’) to type ‘const std::source_location&’
+  211 |                  cudaGetErrorString(err));
+      |                  ~~~~~~~~~~~~~~~~~~^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:60: note: in definition of macro ‘LOG_ERROR’
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:140:58: error: no matching function for call to ‘kvortex::Logger::warn(const char [40], const char*)’
+  140 | #define LOG_WARN(...)  ::kvortex::Logger::instance().warn(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:220:9: note: in expansion of macro ‘LOG_WARN’
+  220 |         LOG_WARN("Failed to set memory pool threshold: {}",
+      |         ^~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:87:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::warn(std::string_view, Args&& ..., const std::source_location&)’
+   87 |     void warn(std::string_view fmt, Args&&... args,
+      |          ^~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:87:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:221:35: note:   cannot convert ‘cudaGetErrorString(err)’ (type ‘const char*’) to type ‘const std::source_location&’
+  221 |                 cudaGetErrorString(err));
+      |                 ~~~~~~~~~~~~~~~~~~^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:140:59: note: in definition of macro ‘LOG_WARN’
+  140 | #define LOG_WARN(...)  ::kvortex::Logger::instance().warn(__VA_ARGS__)
+      |                                                           ^~~~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:139:58: error: no matching function for call to ‘kvortex::Logger::info(const char [43], double, int&)’
+  139 | #define LOG_INFO(...)  ::kvortex::Logger::instance().info(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:224:5: note: in expansion of macro ‘LOG_INFO’
+  224 |     LOG_INFO("Created GPU async pool: {} GB on device {}",
+      |     ^~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:81:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::info(std::string_view, Args&& ..., const std::source_location&)’
+   81 |     void info(std::string_view fmt, Args&&... args,
+      |          ^~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:81:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:139:58: note:   candidate expects 2 arguments, 3 provided
+  139 | #define LOG_INFO(...)  ::kvortex::Logger::instance().info(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:224:5: note: in expansion of macro ‘LOG_INFO’
+  224 |     LOG_INFO("Created GPU async pool: {} GB on device {}",
+      |     ^~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp: In member function ‘kvortex::Result<void*> kvortex::GPUAsyncPool::allocate_async(size_t)’:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:59: error: no matching function for call to ‘kvortex::Logger::error(const char [49], size_t&, const char*)’
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:265:9: note: in expansion of macro ‘LOG_ERROR’
+  265 |         LOG_ERROR("GPU async allocation failed: {} bytes, error: {}",
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::error(std::string_view, Args&& ..., const std::source_location&)’
+   93 |     void error(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:59: note:   candidate expects 2 arguments, 3 provided
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:265:9: note: in expansion of macro ‘LOG_ERROR’
+  265 |         LOG_ERROR("GPU async allocation failed: {} bytes, error: {}",
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:137:59: error: no matching function for call to ‘kvortex::Logger::trace(const char [43], size_t&, void*&)’
+  137 | #define LOG_TRACE(...) ::kvortex::Logger::instance().trace(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:275:5: note: in expansion of macro ‘LOG_TRACE’
+  275 |     LOG_TRACE("Allocated {} bytes from GPU pool (ptr: {})", size, ptr);
+      |     ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:69:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::trace(std::string_view, Args&& ..., const std::source_location&)’
+   69 |     void trace(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:69:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:137:59: note:   candidate expects 2 arguments, 3 provided
+  137 | #define LOG_TRACE(...) ::kvortex::Logger::instance().trace(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:275:5: note: in expansion of macro ‘LOG_TRACE’
+  275 |     LOG_TRACE("Allocated {} bytes from GPU pool (ptr: {})", size, ptr);
+      |     ^~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp: In member function ‘kvortex::VoidResult kvortex::GPUAsyncPool::deallocate_async(void*)’:
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:59: error: no matching function for call to ‘kvortex::Logger::error(const char [34], const char*)’
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:287:9: note: in expansion of macro ‘LOG_ERROR’
+  287 |         LOG_ERROR("GPU async deallocation failed: {}",
+      |         ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::error(std::string_view, Args&& ..., const std::source_location&)’
+   93 |     void error(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:93:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:288:36: note:   cannot convert ‘cudaGetErrorString(err)’ (type ‘const char*’) to type ‘const std::source_location&’
+  288 |                  cudaGetErrorString(err));
+      |                  ~~~~~~~~~~~~~~~~~~^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:141:60: note: in definition of macro ‘LOG_ERROR’
+  141 | #define LOG_ERROR(...) ::kvortex::Logger::instance().error(__VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:137:59: error: no matching function for call to ‘kvortex::Logger::trace(const char [36], void*&)’
+  137 | #define LOG_TRACE(...) ::kvortex::Logger::instance().trace(__VA_ARGS__)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:297:5: note: in expansion of macro ‘LOG_TRACE’
+  297 |     LOG_TRACE("Deallocated from GPU pool (ptr: {})", ptr);
+      |     ^~~~~~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:69:10: note: candidate: ‘template<class ... Args> void kvortex::Logger::trace(std::string_view, Args&& ..., const std::source_location&)’
+   69 |     void trace(std::string_view fmt, Args&&... args,
+      |          ^~~~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:69:10: note:   template argument deduction/substitution failed:
+/home/deeptechadmin/kvortex/src/memory/pool.cpp:297:54: note:   cannot convert ‘ptr’ (type ‘void*’) to type ‘const std::source_location&’
+  297 |     LOG_TRACE("Deallocated from GPU pool (ptr: {})", ptr);
+      |                                                      ^~~
+/home/deeptechadmin/kvortex/include/kvortex/core/logger.hpp:137:60: note: in definition of macro ‘LOG_TRACE’
+  137 | #define LOG_TRACE(...) ::kvortex::Logger::instance().trace(__VA_ARGS__)
+      |                                                            ^~~~~~~~~~~
+gmake[2]: *** [CMakeFiles/kvortex_core.dir/build.make:90: CMakeFiles/kvortex_core.dir/src/memory/pool.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/kvortex_core.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 30%] Linking CXX static library ../../../lib/libgtest.a
+[ 30%] Built target gtest
+gmake: *** [Makefile:146: all] Error 2
