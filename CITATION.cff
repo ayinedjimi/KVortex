@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use KVortex in your research, please cite it as below."
+type: software
+title: "KVortex: High-Performance VRAM to RAM Offloader for AI and vLLM"
+version: 1.0.0
+date-released: 2026-02-16
+url: "https://github.com/ayinedjimi/KVortex"
+repository-code: "https://github.com/ayinedjimi/KVortex"
+license: Apache-2.0
+authors:
+  - family-names: "NEDJIMI"
+    given-names: "Ayi"
+    email: "contact@ayinedjimi-consultants.fr"
+    affiliation: "AYI-NEDJIMI Consultants"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+keywords:
+  - vllm
+  - kv-cache
+  - vram-offload
+  - cpp23
+  - cuda
+  - gpu-computing
+  - llm-inference
+  - high-performance
+  - machine-learning
+  - artificial-intelligence
+abstract: "KVortex is a production-grade C++23 VRAM to RAM offloading system designed for AI inference workloads, specifically optimized for vLLM 0.15. It enables efficient KV cache management by seamlessly transferring data between GPU VRAM and system RAM, achieving 6x faster Time-To-First-Token (TTFT) on cache hits with multi-stream GPU transfers reaching 20+ GB/s bandwidth. Built with modern C++23, it features NUMA-aware memory management, SHA256 content-addressable caching, LRU eviction policy with O(1) operations, and thread-safe concurrent operations."
